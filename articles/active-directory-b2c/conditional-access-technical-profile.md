@@ -363,7 +363,7 @@ In your TrustFrameworkPolicy element, add these SubJourneys as shown in the foll
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
-
+  </SubJourneys>
 ```
 
 Add a user journey that uses the new claims, as shown in the following example:
@@ -372,7 +372,7 @@ Add a user journey that uses the new claims, as shown in the following example:
   <UserJourneys>
     <UserJourney Id="SignUpOrSignInWithCA">
       <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninsam">
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
 
@@ -504,7 +504,7 @@ The following is an example of a relying party file that references this UserJou
       <SingleSignOn Scope="Tenant" />
       <SessionExpiryType>Absolute</SessionExpiryType>
       <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
-      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="<add your app insights instrumentation key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="add your app insights instrumentation key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
