@@ -46,7 +46,7 @@ When using custom domains, consider the following:
 
 - You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so additional charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
-- Currently, the Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md) feature is not supported.
+- If you are interested in using the Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md) feature, you will need to test that your WAF configuration and rules work with your B2C user flows and custom policies.
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *<tenant-name>.b2clogin.com* (unless you're using a custom policy and you [block access](#block-access-to-the-default-domain-name).
 - If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
 
@@ -260,7 +260,7 @@ Azure Front Door passes the user's original IP address. This is the IP address t
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. Don't add another WAF in front of Azure Front Door.
+Azure AD B2C supports custom domains through the use of Azure Front Door. If you want to use your own WAF in front of Azure Front Door, then you will need to configure and independently test your implementation.
 
 
 ## Next steps
